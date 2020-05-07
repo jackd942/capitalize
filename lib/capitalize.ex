@@ -1,18 +1,13 @@
 defmodule Capitalize do
-  @moduledoc """
-  Documentation for `Capitalize`.
-  """
+  def sigil_p(string, []) do
+    String.upcase(string)
+  end
 
-  @doc """
-  Hello world.
+  def sigil_p(string, 'l') do
+    String.downcase(string)
+  end
 
-  ## Examples
-
-      iex> Capitalize.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def sigil_p(_string, _u) do
+    raise "unsupported option"
   end
 end
